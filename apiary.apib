@@ -4,34 +4,178 @@ HOST: http://polls.apiblueprint.org/
 # Parknet - Reserva
 
 Polls is a simple API allowing consumers to view polls and vote in them.
+Reserva
+    Criar Reserva (Est_id, Carro_id, Info_reserva)
+    Info Reserva (Reserva_id)
+    Listar Reservas (User_id)
+    Cancelar Reserva (Reserva_id, razão)
 
-## Questions Collection [/questions]
+## Recomendação [/recomendacoes]
 
-### List All Questions [GET]
+### Listar Recomendações [GET]
+
+
++ Request (application/json)
+
+        {
+            "id": 463736436946,
+            "offset": 0
+        }
+
++ Response 200 (application/json)
+        
+        {
+            "media": 3.5,
+            "total": 100,
+            "offset": 0,
+            "recomendacoes":[
+                {
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                },{
+                    "recomendacao": "negativo",
+                    "mensagem": "Tem Goteira"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                },{
+                    "recomendacao": "negativo",
+                    "mensagem": "Riscaram o meu carro"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal, Recomendo a todos do ml."
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Atendente gatinha!!!"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                },{
+                    "recomendacao": "positivo",
+                    "mensagem": "Legal"
+                }
+            ]
+        }
+
+
+### Recomendar [POST]
+
++ Request (application/json)
+
+        {
+            "id": 463736436946,
+            "recomendação": true,
+            "mensagem": "Adorei o piso de lama natural!!!, Recomendo a Todos!!"
+        }
+
++ Response 200 (application/json)
+
+        {
+        }
+
+## Estacionamentos [/estacionamentos]
+
+### Listar Todos os Estacionamentos [GET]
+
++ Request (application/json)
+
+        {
+            "lat": 34,
+            "lon": 35,
+            "servicos": [
+                "lavagem"
+                "cobertura",
+            ]
+        }
+
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "estacionamentos": [
                     {
-                        "choice": "Swift",
-                        "votes": 2048
+                        "nome": "Garagem Geronimo",
+                        "coordenadas": {
+                            "lat": 34.534753453,
+                            "lon": 34.534753453, 
+                        },
+                        "servicos": [
+                            "lavagem",
+                            "teto"
+                        ],
                     }, {
-                        "choice": "Python",
-                        "votes": 1024
+                        "nome": "Garagem Jacinto",
+                        "coordenadas": {
+                            "lat": 34.534753453,
+                            "lon": 34.534753453, 
+                        },
+                        "servicos": [
+                            "lavagem",
+                            "teto"
+                        ],
                     }, {
-                        "choice": "Objective-C",
-                        "votes": 512
+                        "nome": "Garagem Pinto",
+                        "coordenadas": {
+                            "lat": 34.534753453,
+                            "lon": 34.534753453, 
+                        },
+                        "servicos": [
+                            "lavagem",
+                            "teto"
+                        ],
                     }, {
-                        "choice": "Ruby",
-                        "votes": 256
+                        "nome": "Garagem Norrego",
+                        "coordenadas": {
+                            "lat": 34.534753453,
+                            "lon": 34.534753453, 
+                        },
+                        "servicos": [
+                            "lavagem",
+                            "teto"
+                        ],
                     }
                 ]
             }
         ]
+
+## Estacionamento [/estacionamento]
+
+### Estacionamento [GET]
+
++ Request (application/json)
+
+        {
+            "id": 74363736
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "nome": "Garagem Norrego",
+            "endereço": "Rua dos Bobos Número Zero"
+            "abertura": "10:00"
+            "fechamento" : "18:00"
+            "preço": {
+                "primeira hora": 12,
+                "hora adicional": 3,
+                "per noite": 24
+            },
+            "coordenadas": {
+                "lat": 34.534753453,
+                "lon": 34.534753453, 
+            },
+            "servicos": [
+                "lavagem",
+                "teto"
+            ]
+        }
 
 ### Create a New Question [POST]
 
