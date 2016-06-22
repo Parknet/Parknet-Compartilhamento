@@ -3,12 +3,109 @@ HOST: http://polls.apiblueprint.org/
 
 # Parknet - Reserva
 
-Polls is a simple API allowing consumers to view polls and vote in them.
-Reserva
-    Criar Reserva (Est_id, Carro_id, Info_reserva)
-    Info Reserva (Reserva_id)
-    Listar Reservas (User_id)
-    Cancelar Reserva (Reserva_id, razão)
+Essa API define o protocolo da resreva de dados em estacionamentos privados.
+
+## Reserva [/reserva]
+
+### Criar Reserva [POST]
+
++ Request (application/json)
+
+        {
+            "id": 14165431534,
+            "id_usuário": 123456721456,
+            "id_estacionamento": 4564230874046,
+            "carro_id": 42134,
+            "entrada_estimada": "1997-07-16T19:20:30+01:00",
+            "saida_estimada": "1997-07-16T19:22:30+01:00",
+            "pagamento": "dinheiro"
+        }
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Informações Reserva [GET]
+
++ Request (application/json)
+
+        {
+            "id" = 12345678
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id_estacionamento": 123456721456,
+            "estacionamento": "Garagem Não Cuidamos",
+            "reputacao": 4.5,
+            "carro_cor": "Vermelho",
+            "carro_Modelo": "vectra",
+            "carro_placa": "IBF-2526",
+            "entrada_estimada": "1997-07-16T19:20:30+01:00",
+            "saida_estimada": "1997-07-16T19:22:30+01:00",
+            "entrada": "1997-07-16T19:20:30+01:00",
+            "saida": "1997-07-16T19:22:30+01:00",
+            "status": "PAGO",
+            "pagamento": "dinheiro"
+            "valor" : 12.22
+        }
+
+### Informações Reserva [DELETE]
+
++ Request (application/json)
+
+        {
+            "id": 1234654
+        }
+
++ Response 200 (application/json)
+
+        {
+        }
+
+
+## Listar Reservas [/reservas]
+
+### Listar Reservas [GET]
+
++ Request (application/json)
+
+        {
+            "id": 1234654
+        }
+
++ Response 200 (application/json)
+
+        {
+            "Reservas": [
+                {
+                    "id": 14165431534,
+                    "entrada": "1997-07-16T19:20:30+01:00",
+                    "saida": "1997-07-16T19:22:30+01:00",
+                    "status": "pendente",
+                    "pagamento": "dinheiro"
+                },{
+                    "id": 14165431525,
+                    "entrada": "1997-07-16T19:20:30+01:00",
+                    "saida": "1997-07-16T19:22:30+01:00",
+                    "status": "pendente",
+                    "pagamento": "dinheiro"
+                },{
+                    "id": 14165431535,
+                    "entrada": "1997-07-16T19:20:30+01:00",
+                    "saida": "1997-07-16T19:22:30+01:00",
+                    "status": "pendente",
+                    "pagamento": "dinheiro"
+                },{
+                    "id": 14165431544,
+                    "entrada": "1997-07-16T19:20:30+01:00",
+                    "saida": "1997-07-16T19:22:30+01:00",
+                    "status": "pendente",
+                    "pagamento": "dinheiro"
+                }
+        }
 
 ## Recomendação [/recomendacoes]
 
