@@ -26,6 +26,14 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
         {
         }
 
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/reserva"
+        }
+
 ### Informações Reserva [GET]
 
 + Request (application/json)
@@ -52,6 +60,14 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
             "valor" : 12.22
         }
 
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/reserva"
+        }
+
 ### Informações Reserva [DELETE]
 
 + Request (application/json)
@@ -65,6 +81,13 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
         {
         }
 
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/reservaro "
+        }
 
 ## Listar Reservas [/reservas]
 
@@ -105,6 +128,14 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
                     "status": "pendente",
                     "pagamento": "dinheiro"
                 }
+        }
+
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/reservas"
         }
 
 ## Recomendação [/recomendacoes]
@@ -160,6 +191,13 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
             ]
         }
 
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/recomendacoes"
+        }
 
 ### Recomendar [POST]
 
@@ -174,6 +212,14 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
 + Response 200 (application/json)
 
         {
+        }
+
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/recomendacoes"
         }
 
 ## Estacionamentos [/estacionamentos]
@@ -242,6 +288,14 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
             }
         ]
 
++ Response 400 (application/json)
+
+        {
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/estacionamentos"
+        }
+
 ## Estacionamento [/estacionamento]
 
 ### Estacionamento [GET]
@@ -274,48 +328,10 @@ Essa API define o protocolo da resreva de dados em estacionamentos privados.
             ]
         }
 
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
++ Response 400 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "title": "Bad request",
+            "detail": "Argumentos da requisição inválidos ou insuficientes",
+            "url": "/estacionamento"
         }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
